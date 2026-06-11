@@ -28,5 +28,9 @@ api.interceptors.response.use(
 
 export const register = (userData) => api.post('/auth/register', userData);
 export const login = (userData) => api.post('/auth/login', userData);
+export const getTasks = () => api.get('/tasks');
+export const createTask = (task) => api.post('/tasks', task);
+export const updateTask = (id, updates) => api.put(`/tasks/${id}`, updates);
+export const deleteTask = (id) => api.delete(`/tasks/${id}`);
 
 export default api;

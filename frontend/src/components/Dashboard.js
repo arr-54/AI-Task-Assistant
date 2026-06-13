@@ -62,7 +62,7 @@ function Dashboard({ setToken }) {
   return (
     <div className="dashboard">
       <div className="dashboard-header">
-        <h1>Task Assistant</h1>
+        <h1>AI Task Assistant</h1>
         <button type="button" onClick={handleLogout}>Logout</button>
       </div>
       {error && <div className="error">{error}</div>}

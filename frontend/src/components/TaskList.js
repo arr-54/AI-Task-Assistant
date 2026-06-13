@@ -1,6 +1,10 @@
 import React from 'react';
 
 function TaskList({ tasks, onStatusChange, onDelete }) {
+  if (tasks.length === 0) {
+    return <p className="empty-state">No tasks yet. Create your first task above.</p>;
+  }
+
   return (
     <table className="task-table">
       <thead>
@@ -26,7 +30,13 @@ function TaskList({ tasks, onStatusChange, onDelete }) {
                 <option value="done">Done</option>
               </select>
             </td>
-            <td className={`priority-${task.priority}`}>{task.priority || '-'}</td>
+            <td>
+              {task.priority ? (
+                <span className={`priority-${task.priority}`}>{task.priority}</span>
+              ) : (
+                '-'
+              )}
+            </td>
             <td>{task.category || '-'}</td>
             <td>{new Date(task.created_at).toLocaleDateString()}</td>
             <td>
